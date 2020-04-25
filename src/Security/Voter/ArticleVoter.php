@@ -12,8 +12,8 @@ class ArticleVoter extends Voter
     {
         // replace with your own logic
         // https://symfony.com/doc/current/security/voters.html
-        return in_array($attribute, ['POST_EDIT', 'POST_VIEW'])
-            && $subject instanceof \App\Entity\BlogPost;
+        return in_array($attribute, ['ARTICLE_EDIT', 'ARTICLE_VIEW'])
+            && $subject instanceof \App\Entity\Article;
     }
 
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token)
@@ -26,11 +26,11 @@ class ArticleVoter extends Voter
 
         // ... (check conditions and return true to grant permission) ...
         switch ($attribute) {
-            case 'POST_EDIT':
+            case 'ARTICLE_EDIT':
                 // logic to determine if the user can EDIT
                 // return true or false
                 break;
-            case 'POST_VIEW':
+            case 'ARTICLE_VIEW':
                 // logic to determine if the user can VIEW
                 // return true or false
                 break;
